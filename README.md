@@ -1,12 +1,24 @@
-# Official Implementation of SCAIL: Towards Studio-Grade Character Animation via In-Context Learning of 3D-Consistent Pose Representations
+ <h1><img src="./resources/scail.png" alt="SCAIL" style="height: 1.2em; vertical-align: middle; margin-right: 0.2em;">: Towards Studio-Grade Character Animation via In-Context Learning of 3D-Consistent Pose Representations</h1>
 
-This repository contains the official implementation code for **SCAIL (Studio-Grade Character Animation via In-Context
-Learning)**, a framework that enables high-fidelity character animation under diverse and challenging conditions,
-including large motion variations, stylized characters, and multi-character interactions.
+
+ <div align="center">
+  <a href='https://arxiv.org/abs/2512.05905'><img src='https://img.shields.io/badge/📖 arXiv-2512.05905-red'></a>
+  <a href='huggingface'><img src='https://img.shields.io/badge/🤗 huggingface-coming%20soon-yellow'></a>
+  <a href='https://teal024.github.io/SCAIL/'><img src='https://img.shields.io/badge/🌐 Project Page-green'></a>
+</div>
+
+
+
+This repository contains the official implementation code for **SCAIL (Studio-Grade Character Animation via In-Context Learning)**, a framework that enables high-fidelity character animation under diverse and challenging conditions, including large motion variations, stylized characters, and multi-character interactions.
+
+
+<p align="center">
+  <img src='resources/teaser.png' alt='Teaser' width='90%'>
+</p>
 
 ## 🔎 Project Page
+Check our model architecture design, our video demo, as well as more comparisons against other baselines at [this link](https://teal024.github.io/SCAIL/), more creative examples will be added to the gallery soon.
 
-Check our demo and gallery at [this link](https://teal024.github.io/SCAIL/), more examples will be added soon.
 
 ## 📋 TODOs
 
@@ -14,25 +26,19 @@ Check our demo and gallery at [this link](https://teal024.github.io/SCAIL/), mor
 - [x] **Config for Preview 14B SCAIL Model & Model Weights(512p)**
 - [ ] **Config for Official 1.3B/14B Model & Model Weights(720p with history support)**
 - [ ] **Inference Code for Diffusers**
+- [ ] **Multi-GPU Inference**
 
 ## 🚀 Getting Started
-
 ### Weights Download
-
 ### Environment Setup
-
 Please make sure your Python version is between 3.10 and 3.12, inclusive of both 3.10 and 3.12.
-
 ```
 pip install -r requirements.txt
 ```
 
 ## 🦾 Usage
-
 ### Input preparation
-
 The input data should be organized as follows, we have provided some example data in `examples/`:
-
 ```
 examples/
 ├── 001
@@ -43,14 +49,9 @@ examples/
     └── ref.jpg
 ...
 ```
-
 ### Pose Extraction & Rendering
-
-We provide our pose extraction and rendering code in another repo [SCAIL-Pose](https://github.com/teal024/SCAIL-Pose),
-which can be used to extract the pose from the driving video and render them. We recommand using another environment for
-pose extraction due to dependency issues. Clone that repo to `SCAIL-Pose` folder and follow instructions in it.
+We provide our pose extraction and rendering code in another repo [SCAIL-Pose](https://github.com/teal024/SCAIL-Pose), which can be used to extract the pose from the driving video and render them. We recommand using another environment for pose extraction due to dependency issues. Clone that repo to `SCAIL-Pose` folder and follow instructions in it.
 After pose extraction and rendering, the input data should be organized as follows:
-
 ```
 examples/
 ├── 001
@@ -62,27 +63,25 @@ examples/
 ```
 
 ### Model Inference
-
 Run the following command to start the inference:
-
 ```
-bash scripts/sample_sgl_14Bsc_xc_cli.sh
+bash scripts/sample_sgl_1Bsc_xc_cli.sh
 ```
 
-The CLI will ask you to input in format like `<prompt>@@<example_dir>, `e.g. `the girl is dancing@@examples/001`. The
-`example_dir` should contain rendered.mp4 or rendered_aligned.mp4 after pose extraction and rendering. Results will be
-save to `samples/`.
+The CLI will ask you to input in format like `<prompt>@@<example_dir>`, e.g. `the girl is dancing@@examples/001`. The `example_dir` should contain rendered.mp4 or rendered_aligned.mp4 after pose extraction and rendering. Results will be save to `samples/`.
 
-You can further choose sampling configurations like resolution in the yaml file under `configs/sampling/` or directly
-modify `sample_video.py` for customized sampling logic.
+You can further choose sampling configurations like resolution in the yaml file under `configs/sampling/` or directly modify `sample_video.py` for customized sampling logic.
 
-Though our model prioritize pose control and is robust to text prompts, we still suggest using VLMs like Gemini or
-GPT-4o to optimize the prompt especially on character features and gesture description. This is because the model is
-trained with long prompts and good prompts can improve generation quality. Example codes for prompt optimization will be
-provided soon.
 
 ## 📄 Citation
 
 If you find this work useful in your research, please cite:
 
-*Coming soon*
+```bibtex
+@article{yan2025scail,
+  title={SCAIL: Towards Studio-Grade Character Animation via In-Context Learning of 3D-Consistent Pose Representations},
+  author={Yan, Wenhao and Ye, Sheng and Yang, Zhuoyi and Teng, Jiayan and Dong, ZhenHui and Wen, Kairui and Gu, Xiaotao and Liu, Yong-Jin and Tang, Jie},
+  journal={arXiv preprint arXiv:2512.05905},
+  year={2025}
+}
+```
