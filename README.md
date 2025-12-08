@@ -3,7 +3,7 @@
 
  <div align="center">
   <a href='https://arxiv.org/abs/2512.05905'><img src='https://img.shields.io/badge/📖 arXiv-2512.05905-red'></a>
-  <a href='https://huggingface.co/zai-org/SCAIL-Preview/tree/main'><img src='https://img.shields.io/badge/🤗 huggingface-SCAIL Preview-yellow'></a>
+  <a href='https://huggingface.co/zai-org/SCAIL-Preview/tree/main'><img src='https://img.shields.io/badge/🤗 huggingface-Coming Soon-yellow'></a>
   <a href='https://teal024.github.io/SCAIL/'><img src='https://img.shields.io/badge/🌐 Project Page-green'></a>
 </div>
 
@@ -19,11 +19,12 @@ This repository contains the official implementation code for **SCAIL (Studio-Gr
 ## 🔎 Project Page
 Check our model architecture design, our video demo, as well as more comparisons against other baselines at [this link](https://teal024.github.io/SCAIL/), more creative examples will be added to the gallery soon.
 
+## 🗞️ Update and News
+* 2025.12.08: 🔥 We release the inference code of SCAIL.
+
 
 ## 📋 TODOs
-
-- [x] **Inference Code for SAT**
-- [x] **Config for Preview 14B SCAIL Model & Model Weights(512p)**
+- [ ] **Config for Preview 14B SCAIL Model & Model Weights(512p)**
 - [ ] **Prompt Optimization Snippets**
 - [ ] **Multi-GPU Inference**
 - [ ] **Config for Official 1.3B/14B Model & Model Weights(720p with history support)**
@@ -36,7 +37,7 @@ Check our model architecture design, our video demo, as well as more comparisons
 
 | ckpts       | Download Link                                                                                                                                           |    Notes                      |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
-| SCAIL-Preview(14B) | 🤗 [Huggingface](https://huggingface.co/zai-org/SCAIL-Preview/tree/main)   | Supports  512P
+| SCAIL-Preview(14B) | 🤗 [Coming Soon](https://huggingface.co/zai-org/SCAIL-Preview/tree/main)   | Supports  512P
 
 Use the following commands to download the model weights
 (We have integrated both Wan VAE and T5 modules into this checkpoint for convenience).
