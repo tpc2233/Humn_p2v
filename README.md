@@ -24,9 +24,10 @@ Check our model architecture design, our video demo, as well as more comparisons
 
 - [x] **Inference Code for SAT**
 - [x] **Config for Preview 14B SCAIL Model & Model Weights(512p)**
+- [ ] **Prompt Optimization Snippets**
+- [ ] **Multi-GPU Inference**
 - [ ] **Config for Official 1.3B/14B Model & Model Weights(720p with history support)**
 - [ ] **Inference Code for Diffusers**
-- [ ] **Multi-GPU Inference**
 
 ## 🚀 Getting Started
 ### Checkpoints Download
@@ -96,6 +97,8 @@ bash scripts/sample_sgl_1Bsc_xc_cli.sh
 ```
 
 The CLI will ask you to input in format like `<prompt>@@<example_dir>`, e.g. `the girl is dancing@@examples/001`. The `example_dir` should contain rendered.mp4 or rendered_aligned.mp4 after pose extraction and rendering. Results will be save to `samples/`.
+
+Note that our model is trained with **long detailed prompts**, even though a short or even null prompt can be used, the result may not be as good as the long prompt. We will provide our prompt generation snippets, using Google [Gemini](https://deepmind.google/models/gemini/) to read from the reference image and the driving motion and generate a detailed prompt.
 
 You can further choose sampling configurations like resolution in the yaml file under `configs/sampling/` or directly modify `sample_video.py` for customized sampling logic.
 
