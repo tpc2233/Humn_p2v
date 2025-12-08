@@ -27,7 +27,7 @@ Check our model architecture design, our video demo, as well as more comparisons
 - [ ] **Config for Preview 14B SCAIL Model & Model Weights(512p)**
 - [ ] **Prompt Optimization Snippets**
 - [ ] **Multi-GPU Inference**
-- [ ] **Config for Official 1.3B/14B Model & Model Weights(720p with history support)**
+- [ ] **Config for Official 1.3B/14B Model & Model Weights(736p with history support)**
 - [ ] **Inference Code for Diffusers**
 
 ## 🚀 Getting Started
