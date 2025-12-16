@@ -377,6 +377,12 @@ def run_preprocessing_files(driving_file, ref_file, height, width, use_align, is
 # -----------------------------------------------------------------------------
 with gr.Blocks(theme=gr.themes.Soft()) as demo:
     gr.Markdown("# Human: Pose to Video ")
+    gr.Markdown("""
+    > **⚠️ Important Tips:**
+    > * Max frame duration is **81 frames**, otherwise it will fail.
+    > * Image reference needs to match video aspect ratio and size.
+    > * Set FPS accordingly manually.
+    """)
     
     with gr.Tabs():
         # --- TAB 1: The original App ---
@@ -423,7 +429,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
             with gr.Row():
                 with gr.Column():
                     in_drive = gr.Video(label="Upload Driving Video (Required)", format="mp4")
-                    in_ref = gr.Image(label="Upload Ref Image (Optional)", type="filepath")
+                    in_ref = gr.Image(label="Upload Ref Image (Required)", type="filepath")
                     
                     with gr.Row():
                         h_in = gr.Number(label="Height", value=512); w_in = gr.Number(label="Width", value=896)
@@ -434,7 +440,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
                 
                 with gr.Column():
                     log_p = gr.Textbox(label="Status/Logs", lines=15)
-                    out_pose_down = gr.File(label="Download Pose Video")
+                    #out_pose_down = gr.File(label="Download Pose Video")
                     # Visual check
                     out_pose_vis = gr.Video(label="Preview", interactive=False)
 
